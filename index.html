@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Sans&amp;display=swap" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .u-row {
+            display: flex;
+            flex-wrap: nowrap;
+            margin-left: 0;
+            margin-right: 0
+        }
+
+        .u-row .u-col {
+            position: relative;
+            width: 100%;
+            padding-right: 0;
+            padding-left: 0
+        }
+
+        .u-row .u-col.u-col-100 {
+            flex: 0 0 100%;
+            max-width: 100%
+        }
+
+        @media (max-width:767px) {
+            .u-row:not(.no-stack) {
+                flex-wrap: wrap
+            }
+            .u-row:not(.no-stack) .u-col {
+                flex: 0 0 100% !important;
+                max-width: 100% !important
+            }
+        }
+
+        body,
+        html {
+            padding: 0;
+            margin: 0
+        }
+
+        html {
+            box-sizing: border-box
+        }
+
+        *,
+        :after,
+        :before {
+            box-sizing: inherit
+        }
+
+        html {
+            font-size: 14px;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        p {
+            margin: 0
+        }
+
+        form .error-field {
+            -webkit-animation-name: shake;
+            animation-name: shake;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both
+        }
+
+        form .error-field input,
+        form .error-field textarea {
+            border-color: #a94442 !important;
+            color: #a94442 !important
+        }
+
+        form .field-error {
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: 700;
+            position: absolute;
+            top: -20px;
+            right: 10px
+        }
+
+        form .field-error:after {
+            top: 100%;
+            left: 50%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-color: rgba(136, 183, 213, 0);
+            border-top-color: #ebcccc;
+            border-width: 5px;
+            margin-left: -5px
+        }
+
+        form .spinner {
+            margin: 0 auto;
+            width: 70px;
+            text-align: center
+        }
+
+        form .spinner>div {
+            width: 12px;
+            height: 12px;
+            background-color: hsla(0, 0%, 100%, .5);
+            margin: 0 2px;
+            border-radius: 100%;
+            display: inline-block;
+            -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+            animation: sk-bouncedelay 1.4s infinite ease-in-out both
+        }
+
+        form .spinner .bounce1 {
+            -webkit-animation-delay: -.32s;
+            animation-delay: -.32s
+        }
+
+        form .spinner .bounce2 {
+            -webkit-animation-delay: -.16s;
+            animation-delay: -.16s
+        }
+
+        @-webkit-keyframes sk-bouncedelay {
+            0%,
+            80%,
+            to {
+                -webkit-transform: scale(0)
+            }
+            40% {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @keyframes sk-bouncedelay {
+            0%,
+            80%,
+            to {
+                -webkit-transform: scale(0);
+                transform: scale(0)
+            }
+            40% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+
+        @-webkit-keyframes shake {
+            0%,
+            to {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0)
+            }
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                -webkit-transform: translate3d(-10px, 0, 0);
+                transform: translate3d(-10px, 0, 0)
+            }
+            20%,
+            40%,
+            60%,
+            80% {
+                -webkit-transform: translate3d(10px, 0, 0);
+                transform: translate3d(10px, 0, 0)
+            }
+        }
+
+        @keyframes shake {
+            0%,
+            to {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0)
+            }
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                -webkit-transform: translate3d(-10px, 0, 0);
+                transform: translate3d(-10px, 0, 0)
+            }
+            20%,
+            40%,
+            60%,
+            80% {
+                -webkit-transform: translate3d(10px, 0, 0);
+                transform: translate3d(10px, 0, 0)
+            }
+        }
+
+        @media (max-width:480px) {
+            .container {
+                max-width: 100% !important
+            }
+        }
+
+        @media (min-width:481px) and (max-width:768px) {
+            .hide-tablet {
+                display: none !important
+            }
+        }
+
+        .container {
+            width: 100%;
+            padding-right: 0;
+            padding-left: 0;
+            margin-right: auto;
+            margin-left: auto
+        }
+
+        @media (min-width:576px) {
+            .container {
+                max-width: 540px
+            }
+        }
+
+        @media (min-width:768px) {
+            .container {
+                max-width: 720px
+            }
+        }
+
+        @media (min-width:992px) {
+            .container {
+                max-width: 960px
+            }
+        }
+
+        @media (min-width:1200px) {
+            .container {
+                max-width: 1140px
+            }
+        }
+
+        a[onclick] {
+            cursor: pointer
+        }
+
+        body {
+            font-family: Poppins, sans-serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #000;
+            background-color: #fff
+        }
+
+        #u_body a {
+            color: #00e;
+            text-decoration: underline
+        }
+
+        #u_body a:hover {
+            color: #00e;
+            text-decoration: underline
+        }
+
+        #u_content_button_1 a:hover {
+            color: #fff !important;
+            background-color: #3aaee0 !important
+        }
+
+        #u_content_button_2 a:hover {
+            color: #fff !important;
+            background-color: #3aaee0 !important
+        }
+
+        @media (max-width:480px) {
+            #u_content_text_6.v-container-padding-padding {
+                padding: 5px 0 0 !important
+            }
+            #u_content_text_6 .v-font-size {
+                font-size: 31px !important
+            }
+            #u_content_text_6 .v-line-height {
+                line-height: 90% !important
+            }
+            #u_content_image_3 .v-src-width {
+                width: auto !important
+            }
+            #u_content_image_3 .v-src-max-width {
+                max-width: 95% !important
+            }
+            #u_content_button_1 .v-font-size {
+                font-size: 14px !important
+            }
+            #u_content_text_1.v-container-padding-padding {
+                padding: 5px !important
+            }
+            #u_content_text_1 .v-font-size {
+                font-size: 12px !important
+            }
+            #u_content_text_1 .v-text-align {
+                text-align: center !important
+            }
+            #u_content_button_2 .v-font-size {
+                font-size: 14px !important
+            }
+            #u_content_text_8.v-container-padding-padding {
+                padding: 5px !important
+            }
+            #u_content_text_8 .v-font-size {
+                font-size: 6px !important
+            }
+            #u_content_text_8 .v-line-height {
+                line-height: 110% !important
+            }
+        }
+    </style>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+
+
+    <script>
+        const v_123_pageId = "65fa032365755860258734d5";
+        const v_123_siteId = "65f9d5d52b8b605599d7cbea";
+        const v_123_siteType = "HTML";
+        const v_123_slug = null;
+    </script>
+
+
+    <script>
+        const v_123_delayActive = false;
+    </script>
+
+    <script>
+        window.clickmagick_cmc = {
+            uid: '195548',
+            hid: '1184596371',
+            cmc_project: 'AeroSlim',
+            vid_info: 'on',
+            log_action: '.cta',
+        }
+    </script>
+    <script src="//cdn.clkmc.com/cmc.js"></script>
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '956403246972906');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+                      <img height="1" width="1" style="display:none" 
+                           src="https://www.facebook.com/tr?id=956403246972906&ev=PageView&noscript=1"/>
+                    </noscript></head>
+
+<body>
+    <div id="u_body" class="u_body" style="min-height:100vh">
+        <div id="u_row_5" class="u_row" style="padding:0">
+            <div class="container" style="max-width:800px;margin:0 auto">
+                <div class="u-row">
+                    <div id="u_column_7" class="u-col u-col-100 u_column" style="display:flex;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0">
+                        <div style="width:100%;padding:0">
+                            <div id="u_content_text_6" class="u_content_text v-container-padding-padding" style="overflow-wrap:break-word;padding:0 10px">
+                                <div class="v-text-align v-line-height v-font-size" style="font-family:'Bebas Neue',sans-serif;font-size:47px;line-height:110%;text-align:center;word-wrap:break-word">
+                                    <p style="line-height:90%"><span style="color:#2dc26b;line-height:27.9px"><span style="color:#000;line-height:27.9px">Ancient ritual from a Japanese island helps</span> <span style="color:#000;line-height:27.9px"><span style="color:#2dc26b;line-height:27.9px">boost</span>                                        metabolism</span>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="u_row_2" class="u_row" style="padding:0">
+            <div class="container" style="max-width:800px;margin:0 auto">
+                <div class="u-row">
+                    <div id="u_column_2" class="u-col u-col-100 u_column" style="display:flex;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0">
+                        <div style="width:100%;padding:0">
+                            <div id="u_content_image_3" class="cta v-container-padding-padding" style="overflow-wrap:break-word;padding:0">
+                                <div class="v-text-align" style="position:relative;line-height:0;text-align:center"> <a href="https://hop.clickbank.net/?affiliate=1bhoot&vendor=puraclick&tid=jpin&pg=news" target="_blank"> <img alt="" class="v-src-width v-src-max-width" src="https://123pagebuilder.s3.us-east-1.amazonaws.com/123tapronto1710969717708-Thumb.png" style="width:90%;max-width:90%" title=""> </a>                                    </div>
+                            </div>
+                            <div id="u_content_button_1" class="cta v-container-padding-padding" style="overflow-wrap:break-word;padding:10px">
+                                <div class="v-text-align" style="text-align:center"> <a href="https://hop.clickbank.net/?affiliate=1bhoot&vendor=puraclick&tid=jpin&pg=news" target="_blank" class="v-line-height v-font-size" style="color:#fff;background-color:#35af35;border-radius:4px;line-height:120%;display:inline-block;text-decoration:none;text-align:center;padding:10px 20px;width:auto;max-width:100%;word-wrap:break-word;font-size:22px"> <strong>CLICK HERE TO WATCH THE VIDEO &gt;&gt;</strong> </a>                                    </div>
+                            </div>
+                            <div id="u_content_text_1" class="u_content_text v-container-padding-padding" style="overflow-wrap:break-word;padding:10px">
+                                <div class="v-text-align v-line-height v-font-size" style="font-size:15px;line-height:140%;text-align:left;word-wrap:break-word">
+                                    <p style="line-height:140%">The real root cause of your slow metabolism is not your fault. This incredible method is so confidential and secretive that it’s being deliberately kept from you.</p>
+                                    <p style="line-height:140%">&nbsp;</p>
+                                    <p style="line-height:140%">This innovative approach underwent testing on 34,788 individuals and changed their lives!</p>
+                                    <p style="line-height:140%">&nbsp;</p>
+                                    <p style="line-height:140%">Crucially, this technique doesn't involve costly medical procedures.</p>
+                                    <p style="line-height:140%">&nbsp;</p>
+                                    <p style="line-height:140%">Its effectiveness has been so remarkable that this billion dollar industry is attempting to conceal this information from the public, and the forthcoming presentation may be taken down at any moment.</p>
+                                    <p style="line-height:140%">&nbsp;</p>
+                                    <p style="line-height:140%">Follow the link below to view a brief, free video and witness how numerous individuals are embracing this method and&nbsp;<strong>see exactly how</strong> you can start using this at home, right now!&nbsp;</p>
+                                    <p style="line-height:140%">&nbsp;</p>
+                                    <p style="line-height:140%"><strong>If you or someone you know is struggling to change their life and body, watch this video right now!&nbsp;</strong></p>
+                                </div>
+                            </div>
+                            <div id="u_content_button_2" class="cta v-container-padding-padding" style="overflow-wrap:break-word;padding:10px">
+                                <div class="v-text-align" style="text-align:center"> <a href="https://hop.clickbank.net/?affiliate=1bhoot&vendor=puraclick&tid=jpin&pg=news" target="_blank" class="v-line-height v-font-size" style="color:#fff;background-color:#35af35;border-radius:4px;line-height:120%;display:inline-block;text-decoration:none;text-align:center;padding:10px 20px;width:auto;max-width:100%;word-wrap:break-word;font-size:22px"> <strong>CLICK HERE TO WATCH THE VIDEO &gt;&gt;</strong> </a>                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="u_row_6" class="u_row" style="padding:0">
+            <div class="container" style="max-width:800px;margin:0 auto">
+                <div class="u-row">
+                    <div id="u_column_8" class="u-col u-col-100 u_column" style="display:flex;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0">
+                        <div style="width:100%;padding:0">
+                            <div id="u_content_image_5" class="u_content_image v-container-padding-padding" style="overflow-wrap:break-word;padding:0">
+                                <div class="v-text-align" style="position:relative;line-height:0;text-align:center"> <img alt="" class="v-src-width v-src-max-width" src="https://123pagebuilder.s3.us-east-1.amazonaws.com/123tapronto1712442964565-Captura+de+tela+2024-03-19+185252.png" style="width:100%;max-width:1267px" title=""> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="u_row_8" class="u_row" style="padding:0">
+            <div class="container" style="max-width:800px;margin:0 auto">
+                <div class="u-row">
+                    <div id="u_column_10" class="u-col u-col-100 u_column" style="display:flex;background-color:#c2e0f4;border-top:0 solid transparent;border-left:0 solid transparent;border-right:0 solid transparent;border-bottom:0 solid transparent;border-radius:0">
+                        <div style="width:100%;padding:0">
+                            <div id="u_content_text_8" class="u_content_text v-container-padding-padding" style="overflow-wrap:break-word;padding:10px">
+                                <div class="v-text-align v-line-height v-font-size" style="font-size:11px;color:#f0f0f0;line-height:140%;text-align:center;word-wrap:break-word">
+                                    <div><span style="color:#000;line-height:6.6px"><a rel="noopener" href="http://thehealthyjourney.online/privacypolice" target="_blank">Privacy Policy</a> | <a rel="noopener" href="http://thehealthyjourney.online/termsofservice" target="_blank">Terms Of Service</a></span></div>
+                                    <div><span style="color:#000;line-height:6.6px">Copyright © 2024 All Rights Reserved.&nbsp;</span></div>
+                                    <p style="line-height:110%"><span style="color:#000;line-height:6.6px">This site is not a part of the Facebook website or Facebook Inc.&nbsp;</span></p>
+                                    <div><span style="color:#000;line-height:6.6px">Additionally, this site is NOT endorsed by Facebook in any way.<br></span><span style="color:#000;line-height:6.6px">FACEBOOK is a trademark of FACEBOOK, Inc.</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script async="true" src="https://c1.cdn1tp.net/ghelper/googletagmanager.js"></script>
+</body>
+
+</html>
